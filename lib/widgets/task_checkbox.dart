@@ -6,12 +6,18 @@ class TaskCheckbox extends StatefulWidget {
 }
 
 class _TaskCheckboxState extends State<TaskCheckbox> {
+  bool checkboxState = false;
+
   @override
   Widget build(BuildContext context) {
     return Checkbox(
-      value: false,
+      value: this.checkboxState,
       activeColor: Colors.lightBlueAccent,
-      onChanged: (value) {},
+      onChanged: (value) {
+        this.setState(() {
+          this.checkboxState = value;
+        });
+      },
     );
   }
 }
