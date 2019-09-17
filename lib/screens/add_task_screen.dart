@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AddTaskScreen extends StatelessWidget {
+  final Function addTask;
+
+  AddTaskScreen({this.addTask});
+
   @override
   Widget build(BuildContext context) {
+    String taskName;
+
     return Container(
       color: Color(0xFF757575),
       child: Container(
@@ -36,6 +42,9 @@ class AddTaskScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              onChanged: (value) {
+                taskName = value;
+              },
             ),
             SizedBox(height: 20.0),
             FlatButton(
@@ -46,7 +55,10 @@ class AddTaskScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 15.0),
               color: Colors.lightBlueAccent,
               textColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                this.addTask(taskName);
+                Navigator.pop(context);
+              },
             )
           ],
         ),
