@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
 
-class TaskCheckbox extends StatefulWidget {
-  @override
-  _TaskCheckboxState createState() => _TaskCheckboxState();
-}
+class TaskCheckbox extends StatelessWidget {
+  final bool checkboxState;
+  final Function onChanged;
 
-class _TaskCheckboxState extends State<TaskCheckbox> {
-  bool checkboxState = false;
+  TaskCheckbox({this.checkboxState, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
     return Checkbox(
       value: this.checkboxState,
       activeColor: Colors.lightBlueAccent,
-      onChanged: (value) {
-        this.setState(() {
-          this.checkboxState = value;
-        });
-      },
+      onChanged: this.onChanged,
     );
   }
 }
