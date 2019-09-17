@@ -12,16 +12,10 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  TaskData data = TaskData(taskList: [
-    Task(name: 'Buy milk'),
-    Task(name: 'Buy eggs'),
-    Task(name: 'Buy juice'),
-  ]);
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<TaskData>(
-      builder: (context) => this.data,
+      builder: (context) => TaskData(),
       child: MaterialApp(
         home: TasksScreen(),
       ),
