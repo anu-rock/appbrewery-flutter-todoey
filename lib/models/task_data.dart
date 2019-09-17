@@ -6,6 +6,10 @@ class TaskData extends ChangeNotifier {
 
   TaskData({this.taskList});
 
+  int get taskCount {
+    return this.taskList.length;
+  }
+
   void addTask(Task task) {
     this.taskList.add(task);
     this.notifyListeners();
